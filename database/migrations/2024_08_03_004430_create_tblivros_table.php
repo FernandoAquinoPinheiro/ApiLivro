@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('tblivros', function (Blueprint $table) {
             $table->id("codigo");
             $table->string("nomeLivro",30); //nome varchar(30)
-            $table->string("generoLivro",10); //generoLivro(10)
+            $table->string("generoLivro",10); //generoLivro varchar(10)
             $table->date("anoLivro");
             $table->timestamps();
         });
