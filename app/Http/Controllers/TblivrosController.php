@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Http\Controlers;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Validator;
@@ -49,19 +48,20 @@ use App\Models\tblivros;
     //crud -> Create(criar/Cadastrar)
     public function store(Request $request){
         
+      
         $registroBook = $request->All();
 
         $registroVerifica = Validator::make($registroBook,[
            'nomeLivro' =>'required' ,
-            'generoLivro ' =>'required',
+            'generoLivro' =>'required',
             'anoLivro' => 'required'
-
         ]);
           
 
             if($registroVerifica->fails())
             {
                 return 'Registros Invalidos: '.Response()->json([],Response::HTTP_NO_CONTENT);
+             
             }
 
             $registroBookCad = tblivros::create($registroBook);
@@ -82,7 +82,7 @@ use App\Models\tblivros;
     //crud -> update(Alterar)
     public function update(Request $request, string $id){
 
-        
+        $registroBook = $request->All();
 
         $registroVerifica = Validator::make($registroBook,[
             'nomeLivro' =>'required' ,
